@@ -1,6 +1,7 @@
-import {Locale, useTranslations} from 'next-intl';
-import {setRequestLocale} from 'next-intl/server';
-import {use} from 'react';
+import { Locale, useTranslations } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
+import { use } from 'react';
+
 import PageLayout from '@/components/PageLayout';
 
 type Props = {
@@ -13,7 +14,7 @@ export default function PathnamesPage({params}: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const t = useTranslations('PathnamesPage');
+  const t = useTranslations('pathname');
 
   return (
     <PageLayout title={t('title')}>

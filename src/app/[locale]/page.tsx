@@ -1,29 +1,41 @@
-import {Locale, useTranslations} from 'next-intl';
-import {setRequestLocale} from 'next-intl/server';
-import {use} from 'react';
-import PageLayout from '@/components/PageLayout';
+import { Locale, useTranslations } from 'next-intl';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { ReactNode, use } from 'react';
+
+import { routing } from '@/i18n/routing';
 
 type Props = {
   params: Promise<{locale: Locale}>;
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
+
+export async function generateMetadata(props: Omit<Props, 'children'>) {
+  const t = await getTranslations('meta');
+  return {
+    title: t('home.title'),
+    description: t('home.description')
+  };
+}
+
 export default function IndexPage({params}: Props) {
   const {locale} = use(params);
-
-  // Enable static rendering
   setRequestLocale(locale);
-
-  const t = useTranslations('IndexPage');
+  const t = useTranslations('home');
 
   return (
-    <PageLayout title={t('title')}>
-      <p className="max-w-[590px]">
+    <div>
+      <div className="max-w-[590px]">
         {t.rich('description', {
-          code: (chunks) => (
+          p: (chunks: ReactNode) => <p>{chunks}</p>,
+          code: (chunks: ReactNode) => (
             <code className="font-mono text-white">{chunks}</code>
-          )
+          ),
+          retry: (chunks: ReactNode) => <a href="#">{chunks}</a>
         })}
-      </p>
-    </PageLayout>
+      </div>
+    </div>
   );
 }
