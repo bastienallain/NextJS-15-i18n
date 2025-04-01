@@ -15,4 +15,7 @@ export type Messages = {
       description: string;
     };
   };
+  Manifest: {
+    name: string;
+  };
 };
