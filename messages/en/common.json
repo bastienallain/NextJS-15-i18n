@@ -1,0 +1,20 @@
+{
+  "navigation": {
+    "home": "Home",
+    "pathnames": "Pathnames"
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "fr": "French",
+    "de": "German"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Please double-check the browser address bar or use the navigation to go to a known page."
+  },
+  "layout": {
+    "title": "This is your meta title",
+    "description": "This is your meta description"
+  }
+}

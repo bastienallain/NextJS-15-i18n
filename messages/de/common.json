@@ -1,0 +1,20 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "pathnames": "Pfadnamen"
+  },
+  "localeSwitcher": {
+    "label": "Sprache",
+    "en": "Englisch",
+    "fr": "Französisch",
+    "de": "Deutsch"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Bitte überprüfen Sie die Adressleiste des Browsers oder verwenden Sie die Navigation, um zu einer bekannten Seite zu gelangen."
+  },
+  "layout": {
+    "title": "This is your German meta title",
+    "description": "This is your German meta description"
+  }
+}
