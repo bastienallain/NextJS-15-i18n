@@ -1,7 +1,8 @@
 {
   "navigation": {
     "home": "Startseite",
-    "pathnames": "Pfadnamen"
+    "pathnames": "Pfadnamen",
+    "blog": "Blog"
   },
   "localeSwitcher": {
     "label": "Sprache",
@@ -16,5 +17,6 @@
   "layout": {
     "title": "This is your German meta title",
     "description": "This is your German meta description"
-  }
+  },
+  "blog": "Blog"
 }

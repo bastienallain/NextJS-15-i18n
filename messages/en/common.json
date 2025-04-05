@@ -1,7 +1,8 @@
 {
   "navigation": {
     "home": "Home",
-    "pathnames": "Pathnames"
+    "pathnames": "Pathnames",
+    "blog": "Blog"
   },
   "localeSwitcher": {
     "label": "Language",
@@ -16,5 +17,6 @@
   "layout": {
     "title": "This is your meta title",
     "description": "This is your meta description"
-  }
+  },
+  "blog": "Blog"
 }

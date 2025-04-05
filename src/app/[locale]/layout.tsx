@@ -1,14 +1,14 @@
 import './styles.css';
 
-import { clsx } from 'clsx';
-import { hasLocale, Locale, NextIntlClientProvider } from 'next-intl';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Inter } from 'next/font/google';
-import { notFound } from 'next/navigation';
-import { ReactNode } from 'react';
+import {clsx} from 'clsx';
+import {hasLocale, Locale, NextIntlClientProvider} from 'next-intl';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
+import {Inter} from 'next/font/google';
+import {notFound} from 'next/navigation';
+import {ReactNode} from 'react';
 
 import Navigation from '@/components/Navigation';
-import { routing } from '@/i18n/routing';
+import {routing} from '@/i18n/routing';
 
 import type {Metadata} from 'next';
 

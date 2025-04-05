@@ -1,7 +1,5 @@
 import {render} from '@testing-library/react';
-import pick from 'lodash/pick';
 import {NextIntlClientProvider} from 'next-intl';
-import messages from '../../messages/en.json';
 import Navigation from './Navigation';
 
 // If the tested component uses features from Next.js, you have to mock them.
@@ -23,7 +21,15 @@ it('renders', () => {
   render(
     <NextIntlClientProvider
       locale="en"
-      messages={pick(messages, ['Navigation', 'LocaleSwitcher'])}
+      messages={{
+        common: {
+          navigation: {
+            home: 'Home',
+            pathnames: 'Pathnames',
+            blog: 'Blog'
+          }
+        } as any
+      }}
     >
       <Navigation />
     </NextIntlClientProvider>

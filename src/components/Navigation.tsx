@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import {useTranslations} from 'next-intl';
 
 import LocaleSwitcher from './LocaleSwitcher';
 import NavigationLink from './NavigationLink';
@@ -14,6 +14,7 @@ export default function Navigation() {
           <NavigationLink href="/pathnames">
             {t('navigation.pathnames')}
           </NavigationLink>
+          <NavigationLink href="/blog">{t('navigation.blog')}</NavigationLink>
         </div>
         <LocaleSwitcher />
       </nav>

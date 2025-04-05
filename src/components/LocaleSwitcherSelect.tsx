@@ -24,7 +24,35 @@ export default function LocaleSwitcherSelect({
 
   function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
     const nextLocale = event.target.value as Locale;
+    
+    // Check if we're on a blog post page - now without the /blog/ in path
+    // Check if we're not on one of the known non-blog pages
+    const isHomePage = pathname === '/';
+    const isPathnames = pathname.includes('/pathnames');
+    const isBlogIndex = pathname === '/blog';
+    
+    // If we're not on a known page and not on blog index, assume we're on a blog post
+    const isBlogPost = !isHomePage && !isPathnames && !isBlogIndex;
+    
     startTransition(() => {
+      if (isBlogPost && typeof window !== 'undefined') {
+        // If we have access to the window object and we're on a blog post
+        // Try to use the alternateUrls from the page component
+        const blogNavElement = document.querySelector('[data-blog-alt-urls]');
+        if (blogNavElement) {
+          try {
+            const alternateUrls = JSON.parse(blogNavElement.getAttribute('data-blog-alt-urls') || '{}');
+            if (alternateUrls[nextLocale]) {
+              router.replace(alternateUrls[nextLocale], { locale: nextLocale });
+              return;
+            }
+          } catch (e) {
+            console.error('Error parsing alternateUrls', e);
+          }
+        }
+      }
+
+      // Fall back to the default behavior
       router.replace(
         // @ts-expect-error -- TypeScript will validate that only known `params`
         // are used in combination with a given `pathname`. Since the two will
