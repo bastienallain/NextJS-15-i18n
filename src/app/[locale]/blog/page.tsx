@@ -1,12 +1,15 @@
 import {allBlogPosts} from 'contentlayer/generated';
 import {getTranslations} from 'next-intl/server';
-import {BlogCard} from '@/components/blog/BlogCard';
-import PageLayout from '@/components/PageLayout';
 
-export default async function BlogPage({params}: {params: {locale: string}}) {
+import {BlogCard} from '@/components/blog/BlogCard';
+
+export default async function BlogPage({
+  params
+}: {
+  params: Promise<{locale: string}>;
+}) {
   const t = await getTranslations('common');
-  // Use await to fix Next.js warning
-  const locale = await Promise.resolve(params.locale);
+  const {locale} = await params;
 
   // Get all posts for the current locale and sort by date (newest first)
   const posts = allBlogPosts
@@ -17,7 +20,7 @@ export default async function BlogPage({params}: {params: {locale: string}}) {
     );
 
   return (
-    <PageLayout title={t('blog')}>
+    <>
       <div className="max-w-4xl mx-auto py-8">
         <h1 className="text-3xl font-bold mb-8">{t('blog')}</h1>
 
@@ -27,6 +30,6 @@ export default async function BlogPage({params}: {params: {locale: string}}) {
           ))}
         </div>
       </div>
-    </PageLayout>
+    </>
   );
 }

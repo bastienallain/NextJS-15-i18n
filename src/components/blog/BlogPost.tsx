@@ -1,15 +1,22 @@
 import {BlogPost as BlogPostType} from 'contentlayer/generated';
-import {MDXContent} from '@/components/blog/MDXContent';
-import {BlogNavigation} from '@/components/blog/BlogNavigation';
-import PageLayout from '@/components/PageLayout';
 import Image from 'next/image';
 import React from 'react';
+
+import {BlogNavigation} from '@/components/blog/BlogNavigation';
+import {MDXContent} from '@/components/blog/MDXContent';
 
 // Simple implementation of useMDXComponent until we can fix the dependencies
 function useMDXComponent(code: string) {
   return React.useMemo(() => {
     return function MDXComponent() {
-      return <div dangerouslySetInnerHTML={{ __html: '<p>Content will be shown here when MDX dependencies are fixed.</p>' }} />;
+      return (
+        <div
+          dangerouslySetInnerHTML={{
+            __html:
+              '<p>Content will be shown here when MDX dependencies are fixed.</p>'
+          }}
+        />
+      );
     };
   }, [code]);
 }
@@ -22,7 +29,7 @@ export function BlogPost({post}: BlogPostProps) {
   const MDXComponent = useMDXComponent(post.body?.code || '');
 
   return (
-    <PageLayout title={post.title}>
+    <div>
       <article className="max-w-4xl mx-auto py-8">
         <div className="mb-8">
           <BlogNavigation post={post} />
@@ -55,6 +62,6 @@ export function BlogPost({post}: BlogPostProps) {
           </MDXContent>
         </div>
       </article>
-    </PageLayout>
+    </div>
   );
 }
