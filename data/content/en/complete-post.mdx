@@ -1,0 +1,77 @@
+---
+id: complete-post
+title: Complete MDX Post with All Frontmatter Fields
+description: This is a comprehensive example of an MDX post with all available frontmatter fields configured for testing.
+heroImage: /images/blog/post-1.webp
+date: 2024-04-10
+lastmod: 2024-04-11
+locale: en
+slug: complete-post
+keywords:
+  - MDX
+  - Frontmatter
+  - Testing
+  - ContentLayer
+author: Roma Kulisra
+
+robots: index, follow
+ogImage: /images/social/complete-post.jpg
+ogTitle: Complete MDX Post - All Frontmatter Fields
+ogDescription: A comprehensive example of an MDX post with all available frontmatter fields configured for testing.
+twitterCard: summary_large_image
+tags:
+  - MDX
+  - Frontmatter
+  - Testing
+  - ContentLayer
+category: Development
+---
+
+# Complete MDX Post with All Frontmatter Fields
+
+This is a comprehensive example of an MDX post with all available frontmatter fields configured for testing. This post demonstrates how to use all the available frontmatter fields in ContentLayer.
+
+## Frontmatter Fields
+
+Here are all the frontmatter fields that are available in our ContentLayer configuration:
+
+1. **id**: The unique identifier for the blog post across all translations
+2. **title**: The title of the blog post
+3. **description**: The description of the blog post
+4. **heroImage**: The hero image for the blog post
+5. **date**: The date of the blog post
+6. **lastmod**: The last modified date of the blog post
+7. **locale**: The locale of the blog post (en, de)
+8. **slug**: Optional explicit slug for the blog post
+9. **keywords**: Keywords relevant to the blog post
+10. **author**: The author of the blog post
+11. **canonicalUrl**: The canonical URL of the blog post
+12. **robots**: Directives for search engine robots
+13. **ogImage**: Open Graph image URL
+14. **ogTitle**: Open Graph title
+15. **ogDescription**: Open Graph description
+16. **twitterCard**: Twitter card type
+17. **tags**: Tags for the blog post
+18. **category**: The main category of the blog post
+
+## Computed Fields
+
+ContentLayer also provides several computed fields:
+
+1. **slug**: The URL slug for the blog post
+2. **url**: The full URL path for the blog post
+3. **headings**: Extracted headings from the document
+4. **alternateUrls**: URLs for alternate language versions
+5. **formattedDate**: The formatted date of the blog post
+
+## Testing Images
+
+Let's also test the Image component:
+
+<Image
+  src="/images/blog/post-1.webp"
+  alt="Testing the Image component"
+  width={800}
+  height={600}
+  className="rounded-xl my-8"
+/> 

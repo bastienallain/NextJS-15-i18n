@@ -15,7 +15,10 @@ export default getRequestConfig(async ({requestLocale}) => {
     common: (await import(`../../messages/${locale}/common.json`)).default,
     home: (await import(`../../messages/${locale}/home.json`)).default,
     pathname: (await import(`../../messages/${locale}/pathname.json`)).default,
-    meta: (await import(`../../messages/${locale}/meta.json`)).default
+    meta: (await import(`../../messages/${locale}/meta.json`)).default,
+    aboutUs: (await import(`../../messages/${locale}/aboutUs.json`)).default,
+    blog: (await import(`../../messages/${locale}/blog.json`)).default,
+    manifest: (await import(`../../messages/${locale}/manifest.json`)).default
   };
 
   return {

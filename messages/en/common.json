@@ -1,7 +1,14 @@
 {
   "navigation": {
     "home": "Home",
-    "pathnames": "Pathnames",
+    "about": "About Us",
+    "production": "Production",
+    "design": "Design & Development",
+    "gallery": "Gallery",
+    "events": "Events",
+    "sustainability": "Certification & Sustainability",
+    "refining": "Refining Service",
+    "contact": "Contact Us",
     "blog": "Blog"
   },
   "localeSwitcher": {
@@ -18,5 +25,40 @@
     "title": "This is your meta title",
     "description": "This is your meta description"
   },
-  "blog": "Blog"
+  "footer": {
+    "company": {
+      "title": "Advance Manufacturers",
+      "about": "About Us",
+      "production": "Production",
+      "sustainability": "Sustainability",
+      "contact": "Contact Us"
+    },
+    "services": {
+      "title": "Our Services",
+      "design": "Design & Development",
+      "refining": "Refining Service",
+      "gallery": "Gallery",
+      "events": "Events"
+    },
+    "resources": {
+      "title": "Resources",
+      "documentation": "Documentation",
+      "guides": "Guides",
+      "blog": "Blog",
+      "press": "Press"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "newsletter": {
+      "title": "Subscribe to our newsletter",
+      "description": "The latest news, articles, and resources, sent to your inbox monthly.",
+      "placeholder": "Enter your email",
+      "button": "Subscribe"
+    },
+    "copyright": "© 2024 Advance Jewelry Manufacturers. All rights reserved."
+  }
 }

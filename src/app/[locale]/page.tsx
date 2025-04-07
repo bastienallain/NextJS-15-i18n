@@ -1,7 +1,12 @@
-import {Locale, useTranslations} from 'next-intl';
+import {Locale} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
-import {ReactNode, use} from 'react';
+import {use} from 'react';
 
+import HomeHero from '@/components/home/hero/Hero';
+import HomeAboutUs from '@/components/home/HomeAboutUs';
+import HomeBento from '@/components/home/HomeBento';
+import HomeGallery from '@/components/home/HomeGallery';
+import HomeProcess from '@/components/home/HomeProcess';
 import {routing} from '@/i18n/routing';
 
 type Props = {
@@ -23,19 +28,14 @@ export async function generateMetadata() {
 export default function IndexPage({params}: Props) {
   const {locale} = use(params);
   setRequestLocale(locale);
-  const t = useTranslations('home');
 
   return (
     <div>
-      <div className="max-w-[590px]">
-        {t.rich('description', {
-          p: (chunks: ReactNode) => <p>{chunks}</p>,
-          code: (chunks: ReactNode) => (
-            <code className="font-mono text-white">{chunks}</code>
-          ),
-          retry: (chunks: ReactNode) => <a href="#">{chunks}</a>
-        })}
-      </div>
+      <HomeHero />
+      <HomeAboutUs />
+      <HomeGallery />
+      <HomeProcess />
+      <HomeBento />
     </div>
   );
 }

@@ -1,4 +1,39 @@
 {
-  "title": "Willkommen",
-  "description": "Dies ist die Startseite"
+  "title": "Hersteller von feinem Gold- & Silberschmuck",
+  "subtitle": "Ihr vertrauenswürdiger Fertigungspartner in Asien, der seit über 30 Jahren zuverlässig Qualitätshandwerk weltweit liefert",
+  "AboutTitle": "Über uns",
+  "AboutText": "Wir sind ein Familienunternehmen mit über 30-jähriger Erfahrung in der Schmuckherstellung. Wir produzieren jährlich über 3 Millionen Schmuckstücke. Unser Angebot umfasst alle Schmuckkategorien einschließlich Ohrringe, Anhänger, Halsketten, Armbänder, Ringe, Ketten und Creolen. Wir arbeiten mit 8k, 9k, 10k, 14k & 18k Gold, 925 Sterlingsilber sowie Messing. Verwendete Steine umfassen Edel- und Halbedelsteine, natürliche und im Labor gezüchtete Diamanten, Zirkonia und Kristalle. Wir bieten auch recycelte Metalle, konfliktfreie Edelsteine und biologisch abbaubare Verpackungen an.",
+  "AboutCtaText": "Erfahren Sie mehr über uns",
+  "HomeAboutImg": "Advance ethischer Schmuckhersteller Gebäude in Bangkok mit modernen Produktionsanlagen für nachhaltige Schmuckfertigung",
+  "ctaOne": "Kontaktieren Sie uns",
+  "ctaTwo": "Über uns",
+  "galleryTitle": "Gold &",
+  "gallerySpan": "Silberschmuck",
+  "galleryText": "Eine Vielzahl von Designs zum Auswählen!",
+  "mopJewelry": "Mutterofen-Schmuck",
+  "pearlJewelry": "Perl-Schmuck",
+  "diamondJewelry": "Diamant-Schmuck",
+  "goldJewelry": "Gold-Schmuck",
+  "pinkGoldJewelry": "Pink Gold Pearl Jewelry",
+  "secretTitle": "Geheimnis unseres Erfolgs",
+  "secretText": "Wir engagieren über 400 hoch qualifizierte Mitarbeiter mit über 3 Jahrzehnten Erfahrung in der Schmuckherstellung. Ehrlichkeit, Fairness und Loyalität sind in unserer Unternehkultur tief verwurzelt und sind der treibende Faktor in allen unseren Beziehungen zu Kunden, Lieferanten und Mitarbeitern. Ein großer Teil unserer Mitarbeiter hat über 30 Jahre bei uns gearbeitet. Dies ist einer der wichtigsten Faktoren für unseren Erfolg. Dies hilft auch, die hohen Qualitätsstandards zu gewährleisten, die wir bekannt sind.",
+  "secretTextImg": "Produktbildschirm",
+  "HomeProcess": {
+    "title": "Unser Design",
+    "span": "Prozess",
+    "textCardOne": "Unser erfahrenes Designteam arbeitet eng mit Ihnen zusammen, um Ihre Vision und Anforderungen zu verstehen",
+    "textCardTwo": "Mit modernster CAD-Technologie erstellen wir präzise 3D-Modelle Ihrer Designs",
+    "textCardThree": "Wir produzieren hochwertige Muster für Ihre Freigabe vor der Massenproduktion",
+    "imgAltOne": "Professionelle Schmuckdesigner arbeiten gemeinsam an kundenspezifischen Schmuckdesigns an einer modernen Arbeitsstation",
+    "imgAltTwo": "3D-CAD-Rendering eines detaillierten Schmuckstücks mit komplexen Designelementen",
+    "imgAltThree": "Hochwertige Schmuckmuster werden sorgfältig auf Qualität geprüft"
+  },
+  "bento": {
+    "waxDepartment": "Geschickte Handwerker in unserer Wachsabteilung erstellen komplexe Schmuckformen",
+    "jewelryPolishing": "Professioneller Schmuckpolierprozess für perfekte Oberflächen auf jedem Stück",
+    "jewelryEnamelling": "Detaillierte Emaillierarbeiten an feinen Schmuckstücken",
+    "cadPrinter": "Fortschrittlicher CAD-Drucker erstellt präzise Schmuckprototypen",
+    "diamondSettings": "Erfahrener Handwerker setzt Diamanten in feinen Schmuckstücken"
+  },
+  "heroImage": "Elegante Präsentation von feinem Gold- und Silberschmuck, die unsere Handwerkskunst zeigt"
 }

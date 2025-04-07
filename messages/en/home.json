@@ -3,6 +3,41 @@
     "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
     "title": "Something went wrong!"
   },
-  "title": "Welcome",
-  "description": "<p>This is the en <code>home</code> page</p>"
+  "title": "Manufacturers of Fine Gold & Silver Jewelry",
+  "subtitle": "Your trusted manufacturing partner in Asia Reliably delivering quality craftsmanship around the world for over 30 years",
+  "AboutTitle": "About Us",
+  "AboutText": "We are a family run business with over 30 years experience in the jewelry manufacturing industry. We produce over 3 million pieces of jewelry per year. We offer all jewelry categories including earrings, pendants, necklaces, bracelets, rings, chains and hoops. We work with 8k, 9k, 10k, 14k & 18k gold, 925 sterling silver as well as brass metal. Stones used include precious and semi-precious gemstones, natural and lab-grown diamonds, cubic zirconia and crystals. We also offer recycled metals, conflict-free gemstones and biodegradable packaging.",
+  "AboutCtaText": "learn more about us",
+  "HomeAboutImg": "Exterior view of Advance jewelry manufacturers Bangkok building where ethical jewelry is crafted with responsible sourcing standards",
+  "ctaOne": "Contact Us",
+  "ctaTwo": "About Us",
+  "galleryTitle": "Gold &",
+  "gallerySpan": "Silver Jewelry",
+  "galleryText": "An array of designs to choose from!",
+  "mopJewelry": "Mother of Pearl Jewelry",
+  "pearlJewelry": "Pearl Jewelry",
+  "diamondJewelry": "Diamond Jewelry",
+  "goldJewelry": "Gold Jewelry",
+  "pinkGoldJewelry": "Pink Gold Pearl Jewelry",
+  "secretTitle": "Secret to our success",
+  "secretText": "We engage over 400 highly qualified employees with over 3 decades of experience in jewelry production. Honesty, fairness and loyalty are deeply rooted in our corporate culture and this is the driving force in all our dealings with our customers, suppliers and employees. A large part of our workforce has been with us for over 30 years. This is one of the most important factors contributing to our success. This also helps maintain the high-quality standards that we are well known for.",
+  "secretTextImg": "Product screenshot",
+  "HomeProcess": {
+    "title": "Our Design",
+    "span": "Process",
+    "textCardOne": "Our expert design team works closely with you to understand your vision and requirements",
+    "textCardTwo": "Using state-of-the-art CAD technology, we create precise 3D models of your designs",
+    "textCardThree": "We produce high-quality samples for your approval before mass production",
+    "imgAltOne": "Professional jewelry designers working together on custom jewelry designs at a modern workstation",
+    "imgAltTwo": "3D CAD rendering of a detailed jewelry piece showing intricate design elements",
+    "imgAltThree": "High-quality jewelry sample being carefully inspected for quality assurance"
+  },
+  "bento": {
+    "waxDepartment": "Skilled artisans working in our wax department creating intricate jewelry molds",
+    "jewelryPolishing": "Professional jewelry polishing process ensuring perfect finish on each piece",
+    "jewelryEnamelling": "Detailed enamelling work being performed on fine jewelry pieces",
+    "cadPrinter": "Advanced CAD printer creating precise jewelry prototypes",
+    "diamondSettings": "Expert craftsman setting diamonds in fine jewelry pieces"
+  },
+  "heroImage": "Elegant display of fine gold and silver jewelry showcasing our craftsmanship"
 }

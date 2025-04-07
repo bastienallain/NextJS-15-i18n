@@ -239,8 +239,8 @@ export const routing = defineRouting({
     '/blog': {
       de: '/blog'
     },
-    '/blog/[slug]': {
-      de: '/blog/[slug]'
+    '[slug]': {
+      de: '[slug]'
     }
   }
 });

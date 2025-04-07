@@ -1,23 +1,21 @@
 import './styles.css';
 
 import {clsx} from 'clsx';
+import {GeistSans} from 'geist/font/sans';
 import {hasLocale, Locale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
-import {Inter} from 'next/font/google';
 import {notFound} from 'next/navigation';
 import {ReactNode} from 'react';
 
-import Navigation from '@/components/Navigation';
+import Footer from '@/components/common/Footer';
+import {Navigation} from '@/components/navigation';
 import {routing} from '@/i18n/routing';
 
 import type {Metadata} from 'next';
-
 type Props = {
   children: ReactNode;
   params: Promise<{locale: Locale}>;
 };
-
-const inter = Inter({subsets: ['latin']});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
@@ -42,10 +40,11 @@ export default async function LocaleLayout({children, params}: Props) {
 
   return (
     <html className="h-full" lang={locale}>
-      <body className={clsx(inter.className, 'flex h-full flex-col')}>
+      <body className={clsx(GeistSans.className)}>
         <NextIntlClientProvider>
           <Navigation />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

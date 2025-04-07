@@ -1,35 +1,19 @@
+'use client';
+
 import {allBlogPosts} from 'contentlayer/generated';
-import {getTranslations} from 'next-intl/server';
+import {compareDesc} from 'date-fns';
+import {useLocale, useTranslations} from 'next-intl';
 
-import {BlogCard} from '@/components/blog/BlogCard';
+import {SimpleBlogWithGrid} from '@/components/blog/SimpleBlogWithGrid';
 
-export default async function BlogPage({
-  params
-}: {
-  params: Promise<{locale: string}>;
-}) {
-  const t = await getTranslations('common');
-  const {locale} = await params;
+export default function BlogPage() {
+  const locale = useLocale();
+  const t = useTranslations('blog');
 
-  // Get all posts for the current locale and sort by date (newest first)
+  // Filter posts by current locale and sort by date
   const posts = allBlogPosts
-    .filter((post: any) => post.locale === locale)
-    .sort(
-      (a: any, b: any) =>
-        new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
+    .filter((post) => post.locale === locale)
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
-  return (
-    <>
-      <div className="max-w-4xl mx-auto py-8">
-        <h1 className="text-3xl font-bold mb-8">{t('blog')}</h1>
-
-        <div className="grid gap-8 md:grid-cols-2">
-          {posts.map((post: any) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
-        </div>
-      </div>
-    </>
-  );
+  return <SimpleBlogWithGrid posts={posts} />;
 }

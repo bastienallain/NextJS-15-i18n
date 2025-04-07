@@ -88,3 +88,33 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+// NOTE: review all the ALT the our keyword
+
+## Image Accessibility Guidelines
+
+### Alt Text Standards
+
+All images in the project should follow these guidelines for alt text:
+
+1. Be descriptive and specific
+2. Avoid starting with "Image of" or "Picture of"
+3. Keep under 125 characters
+4. Include relevant keywords naturally
+
+### Current Alt Text Review Areas
+
+The following components contain image alt text that should be reviewed:
+
+- `HomeHero` - Hero banner image alt text
+- `HomeAboutUs` - About section image descriptions
+- `HomeGallery` - Product gallery image alt text
+- `HomeProcess` - Process step images
+- `HomeBento` - Manufacturing process images
+
+### Common Issues to Check
+
+1. Remove instances of "our" in alt text to maintain neutrality
+2. Ensure consistent capitalization
+3. Verify technical terms are spelled correctly
+4. Confirm alt text matches the actual image content
+5. Check for redundant descriptions

@@ -1,15 +1,33 @@
 import type {NextConfig} from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
-import {withContentlayer} from 'next-contentlayer';
 
 const withNextIntl = createNextIntlPlugin({});
 
 const config: NextConfig = {
-  // Add any additional Next.js configuration here
-  experimental: {
-    // This enables older compatibility mode for contentlayer
-    serverComponentsExternalPackages: ['contentlayer']
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets.aceternity.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.shopify.com'
+      }
+    ]
   }
 };
 
-export default withNextIntl(withContentlayer(config));
+export default withNextIntl(config);

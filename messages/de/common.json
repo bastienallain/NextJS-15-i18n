@@ -1,7 +1,14 @@
 {
   "navigation": {
     "home": "Startseite",
-    "pathnames": "Pfadnamen",
+    "about": "Über uns",
+    "production": "Produktion",
+    "design": "Design & Entwicklung",
+    "gallery": "Galerie",
+    "events": "Veranstaltungen",
+    "sustainability": "Zertifizierung & Nachhaltigkeit",
+    "refining": "Raffinierungsservice",
+    "contact": "Kontakt",
     "blog": "Blog"
   },
   "localeSwitcher": {
@@ -12,11 +19,46 @@
   },
   "notFound": {
     "title": "Seite nicht gefunden",
-    "description": "Bitte überprüfen Sie die Adressleiste des Browsers oder verwenden Sie die Navigation, um zu einer bekannten Seite zu gelangen."
+    "description": "Bitte überprüfen Sie die Adresszeile des Browsers oder nutzen Sie die Navigation, um zu einer bekannten Seite zu gelangen."
   },
   "layout": {
-    "title": "This is your German meta title",
-    "description": "This is your German meta description"
+    "title": "Dies ist Ihr Meta-Titel",
+    "description": "Dies ist Ihre Meta-Beschreibung"
   },
-  "blog": "Blog"
+  "footer": {
+    "company": {
+      "title": "Advance Manufacturers",
+      "about": "Über uns",
+      "production": "Produktion",
+      "sustainability": "Nachhaltigkeit",
+      "contact": "Kontakt"
+    },
+    "services": {
+      "title": "Unsere Dienstleistungen",
+      "design": "Design & Entwicklung",
+      "refining": "Raffinierungsservice",
+      "gallery": "Galerie",
+      "events": "Veranstaltungen"
+    },
+    "resources": {
+      "title": "Ressourcen",
+      "documentation": "Dokumentation",
+      "guides": "Anleitungen",
+      "blog": "Blog",
+      "press": "Presse"
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "privacy": "Datenschutz",
+      "terms": "Nutzungsbedingungen",
+      "cookies": "Cookie-Richtlinie"
+    },
+    "newsletter": {
+      "title": "Abonnieren Sie unseren Newsletter",
+      "description": "Die neuesten Nachrichten, Artikel und Ressourcen, wöchentlich in Ihrem Posteingang.",
+      "placeholder": "Geben Sie Ihre E-Mail-Adresse ein",
+      "button": "Abonnieren"
+    },
+    "copyright": "© 2024 Advance Jewelry Manufacturers. Alle Rechte vorbehalten."
+  }
 }
