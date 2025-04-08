@@ -2,14 +2,14 @@
   "name": "example-app-router",
   "private": true,
   "scripts": {
-    "dev": "contentlayer && next dev --turbo",
+    "dev": "concurrently \"content-collections watch\" \"next dev --turbo\"",
     "lint": "eslint src && tsc && prettier src --check",
     "test": "pnpm run test:playwright && pnpm run test:jest",
     "test:playwright": "playwright test",
     "test:jest": "jest",
-    "build": "contentlayer build && next build",
+    "build": "content-collections build && next build",
     "start": "next start",
-    "contentlayer": "contentlayer dev"
+    "content-collections": "content-collections dev"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -27,6 +27,7 @@
     "next": "^15.2.2",
     "next-contentlayer": "^0.3.4",
     "next-intl": "^4.0.2",
+    "next-mdx-remote": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
@@ -36,6 +37,9 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@content-collections/cli": "^0.1.6",
+    "@content-collections/core": "^0.8.2",
+    "@content-collections/next": "^0.2.6",
     "@eslint/eslintrc": "^3.1.0",
     "@jest/globals": "^29.7.0",
     "@playwright/test": "^1.51.0",
@@ -45,6 +49,7 @@
     "@types/node": "^20.14.5",
     "@types/react": "^19.0.0",
     "autoprefixer": "^10.4.19",
+    "concurrently": "^9.1.2",
     "eslint": "9.11.1",
     "eslint-config-next": "^15.2.0",
     "eslint-plugin-react-hooks": "^5.2.0",
@@ -52,7 +57,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.5.3",
     "prettier": "^3.3.3",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "zod": "^3.24.2"
   },
   "prettier": {
     "singleQuote": true,

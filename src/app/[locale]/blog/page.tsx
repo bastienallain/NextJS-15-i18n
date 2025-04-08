@@ -1,6 +1,6 @@
 'use client';
 
-import {allBlogPosts} from 'contentlayer/generated';
+import {BlogPost, allBlogs as posts} from 'content-collections';
 import {compareDesc} from 'date-fns';
 import {useLocale, useTranslations} from 'next-intl';
 
@@ -11,9 +11,11 @@ export default function BlogPage() {
   const t = useTranslations('blog');
 
   // Filter posts by current locale and sort by date
-  const posts = allBlogPosts
-    .filter((post) => post.locale === locale)
-    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+  const filteredPosts = posts
+    .filter((post: BlogPost) => post.locale === locale)
+    .sort((a: BlogPost, b: BlogPost) =>
+      compareDesc(new Date(a.date), new Date(b.date))
+    );
 
-  return <SimpleBlogWithGrid posts={posts} />;
+  return <SimpleBlogWithGrid posts={filteredPosts} />;
 }

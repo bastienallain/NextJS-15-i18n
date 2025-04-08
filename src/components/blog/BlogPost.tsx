@@ -1,35 +1,29 @@
 'use client';
 
-import {format} from 'date-fns';
-import {AnimatePresence, motion} from 'framer-motion';
-import {useMDXComponent} from 'next-contentlayer/hooks';
-import {useLocale, useTranslations} from 'next-intl';
+import { format } from 'date-fns';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
 import Image from 'next/image';
 import Link from 'next/link';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 import MDXImage from '@/components/mdx/Image';
 import LocaleSwitcher from '@/components/navigation/LocaleSwitcher';
 import HreflangTagsClient from '@/components/seo/HreflangTagsClient';
-import {IconMenu} from '@tabler/icons-react';
+import { IconMenu } from '@tabler/icons-react';
 
 interface BlogPostProps {
   post: {
+    id?: string;
     title: string;
     description: string;
-    date: string;
-    heroImage: string;
-    body: {
-      code: string;
-      raw: string;
-    };
-    headings?: Array<{
-      text: string;
-      level: number;
-      slug: string;
-    }>;
+    date: string | Date;
+    heroImage?: string;
+    content: string;
     author?: string;
-    lastmod?: string;
+    lastmod?: string | Date;
     keywords?: string[];
     tags?: string[];
     category?: string;
@@ -38,6 +32,15 @@ interface BlogPostProps {
     ogImage?: string;
     ogTitle?: string;
     ogDescription?: string;
+    locale?: string;
+    slug?: string;
+    headings?: Heading[];
+    _meta: {
+      path: string;
+      filePath: string;
+      fileName: string;
+      directory: string;
+    };
   };
 }
 
@@ -183,8 +186,20 @@ const TableOfContents = ({headings}: {headings?: Heading[]}) => {
 export default function BlogPost({post}: BlogPostProps) {
   useLocale(); // Used by translations system
   const t = useTranslations('blog');
-  const MDXContent = useMDXComponent(post.body.code);
+  const [mdxSource, setMdxSource] = useState<any>(null);
   const [imageError, setImageError] = useState(false);
+  
+  useEffect(() => {
+    // Process MDX content
+    const processContent = async () => {
+      if (post.content) {
+        const mdxSource = await serialize(post.content);
+        setMdxSource(mdxSource);
+      }
+    };
+    
+    processContent();
+  }, [post.content]);
 
   // Add structured data for SEO
   useEffect(() => {
@@ -195,8 +210,10 @@ export default function BlogPost({post}: BlogPostProps) {
       headline: post.title,
       description: post.description,
       image: post.heroImage,
-      datePublished: post.date,
-      dateModified: post.lastmod || post.date,
+      datePublished: typeof post.date === 'string' ? post.date : post.date.toISOString(),
+      dateModified: post.lastmod 
+        ? (typeof post.lastmod === 'string' ? post.lastmod : post.lastmod.toISOString())
+        : (typeof post.date === 'string' ? post.date : post.date.toISOString()),
       author: post.author
         ? {
             '@type': 'Person',
@@ -243,10 +260,10 @@ export default function BlogPost({post}: BlogPostProps) {
           </p>
           <div className="mt-6 flex items-center">
             <time
-              dateTime={post.date}
+              dateTime={typeof post.date === 'string' ? post.date : post.date.toISOString()}
               className="text-sm text-gray-500 dark:text-gray-400"
             >
-              {t('publishedOn')} {format(new Date(post.date), 'LLLL d, yyyy')}
+              {t('publishedOn')} {format(typeof post.date === 'string' ? new Date(post.date) : post.date, 'LLLL d, yyyy')}
             </time>
             {post.author && (
               <span className="ml-4 text-sm text-gray-500 dark:text-gray-400">
@@ -258,7 +275,7 @@ export default function BlogPost({post}: BlogPostProps) {
 
         <div className="relative mb-10 aspect-video w-full overflow-hidden rounded-xl">
           <Image
-            src={imageError ? '/images/blog/default.jpg' : post.heroImage}
+            src={imageError ? '/images/blog/default.jpg' : (post.heroImage || '/images/blog/default.jpg')}
             alt={post.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
@@ -269,7 +286,11 @@ export default function BlogPost({post}: BlogPostProps) {
         </div>
 
         <div className="prose prose-lg dark:prose-invert mx-auto">
-          <MDXContent components={mdxComponents} />
+          {mdxSource ? (
+            <MDXRemote {...mdxSource} components={mdxComponents} />
+          ) : (
+            <div>Loading content...</div>
+          )}
         </div>
 
         {post.tags && post.tags.length > 0 && (
@@ -292,13 +313,16 @@ export default function BlogPost({post}: BlogPostProps) {
 
         <footer className="mt-10 border-t border-gray-200 dark:border-gray-800 pt-10">
           <div className="flex items-center justify-between mx-auto">
-            <LocaleSwitcher />
+            <LocaleSwitcher 
+              pathname={post.slug}
+              pathnameOverride={(post.alternateUrls || {}) as Record<string, string>} 
+            />
           </div>
         </footer>
       </article>
 
       <HreflangTagsClient
-        canonicalUrl={post.canonicalUrl}
+        canonicalUrl={post.canonicalUrl || `/${post.locale}/${post.slug}`}
         alternateUrls={post.alternateUrls}
       />
     </div>

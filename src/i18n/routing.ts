@@ -32,12 +32,14 @@ export const routing = defineRouting({
     '/blog': {
       de: '/blog'
     },
-    '/blog/first-post': {
-      de: '/blog/erster-beitrag'
+    // Root-level blog posts - this enables URLs like /first-post in EN and /de/erster-beitrag in DE
+    '/first-post': {
+      de: '/erster-beitrag'
     },
-    '/blog/[slug]': {
-      de: '/blog/[slug]'
+    '/complete-post': {
+      de: '/vollstandiger-beitrag'
     },
+    // Generic pattern for any new blog posts
     '/[slug]': {
       de: '/[slug]'
     }

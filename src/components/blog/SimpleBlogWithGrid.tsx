@@ -1,11 +1,11 @@
 'use client';
-import {BlogPost} from 'contentlayer/generated';
-import {useLocale} from 'next-intl';
+import { BlogPost } from 'content-collections';
+import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import {useState} from 'react';
+import { useState } from 'react';
 
-import {cn} from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface SimpleBlogWithGridProps {
   posts: BlogPost[];
@@ -36,7 +36,7 @@ export function SimpleBlogWithGrid({posts}: SimpleBlogWithGridProps) {
       <div className="flex flex-col items-center justify-between pb-20 max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full relative z-20">
           {posts.map((post, index) => (
-            <BlogCard post={post} key={post._id} />
+            <BlogCard post={post} key={`${post.id}-${post.locale}`} />
           ))}
         </div>
       </div>
@@ -64,7 +64,7 @@ export const BlogCard = ({post}: {post: BlogPost}) => {
   return (
     <Link
       className="shadow-derek rounded-3xl border dark:border-neutral-800 w-full bg-white dark:bg-neutral-900  overflow-hidden  hover:scale-[1.02] transition duration-200"
-      href={`/${locale}/blog/${post.slug}`}
+      href={`/${locale}/${post.slug}`}
     >
       {post.heroImage ? (
         <SimpleBlurImage
@@ -136,7 +136,7 @@ export const SimpleBlurImage = ({
         isLoading ? 'blur-sm scale-105' : 'blur-0 scale-100',
         className
       )}
-      onLoadingComplete={() => setLoading(false)}
+      onLoad={() => setLoading(false)}
       src={src}
       width={width}
       height={height}

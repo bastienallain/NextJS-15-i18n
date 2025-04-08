@@ -19,28 +19,42 @@ type Props = {
   defaultValue: string;
   label: string;
   className?: string;
+  pathname?: string;
+  pathnameOverride?: Record<string, string>;
 };
 
 export default function LocaleSwitcherSelect({
   children,
   defaultValue,
   label,
-  className
+  className,
+  pathname: customPathname,
+  pathnameOverride
 }: Props) {
   const router = useRouter();
   const [isPending, startTransition] = React.useTransition();
-  const pathname = usePathname();
+  const currentPathname = usePathname();
   const params = useParams();
 
   function onValueChange(nextLocale: string) {
     startTransition(() => {
-      router.replace(
-        // @ts-expect-error -- TypeScript will validate that only known `params`
-        // are used in combination with a given `pathname`. Since the two will
-        // always match for the current route, we can skip runtime checks.
-        {pathname, params},
-        {locale: nextLocale as Locale}
-      );
+      // If we have custom pathnames for different locales (like in blog posts)
+      if (pathnameOverride && nextLocale in pathnameOverride) {
+        // Use the explicit pathname for this locale from the override
+        router.push(pathnameOverride[nextLocale], { locale: nextLocale as Locale });
+      } else if (customPathname) {
+        // Use the provided custom pathname
+        router.push(`/${customPathname}`, { locale: nextLocale as Locale });
+      } else {
+        // Default case - keep current pathname but change locale
+        router.replace(
+          // @ts-expect-error -- TypeScript will validate that only known `params`
+          // are used in combination with a given `pathname`. Since the two will
+          // always match for the current route, we can skip runtime checks.
+          {pathname: currentPathname, params},
+          {locale: nextLocale as Locale}
+        );
+      }
     });
   }
 
